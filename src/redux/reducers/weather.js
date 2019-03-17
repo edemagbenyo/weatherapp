@@ -12,6 +12,8 @@ export default function (state = initialState, action) {
             return { ...state, waiting:true };
       case ActionTypes.QUERY_LOCATION:
             return { ...state, weather:action.payload , waiting:false };
+      case ActionTypes.FAILED_QUERY:
+            return { ...state, weather:{} , error:true };
       default:
         return state;
     }

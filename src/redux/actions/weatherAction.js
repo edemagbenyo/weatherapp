@@ -33,7 +33,7 @@ export const queryWeather = (woeid,term=null) => dispatch => {
   dispatch(waitingWeather());
   fetch( "http://weather.test/weather.php?command=location&woeid="+woeid)
     .then(response => {
-        if (response.ok) {
+      if (response.ok) {          
           return response.json()
         } else {
           console.log("not fetching....");
@@ -45,7 +45,8 @@ export const queryWeather = (woeid,term=null) => dispatch => {
         var errorMess = new Error(error.message);
         throw errorMess;
       })
-    .then(response => response)
+    .then(response => console.log(response)
+    )
     .then(weather =>
       dispatch({
         type: ActionTypes.QUERY_LOCATION,

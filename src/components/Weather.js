@@ -45,7 +45,9 @@ class Weather extends Component {
         if(!this.props.weather.waiting ){
             allweathers.push(this.props.weather.weather);
             //RESET THE WEATHER TO EMPTY OBJECT
-            this.props.weather.weather ={};        
+            this.props.weather.weather ={};  
+            console.log(this.props.weather);
+                  
     }
         return (
             <Row>
