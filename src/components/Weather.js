@@ -20,35 +20,30 @@ class Weather extends Component {
     getWeatherIcon(weather){
         return "https://www.metaweather.com/static/img/weather/"+ this.getTodayWeather(weather).weather_state_abbr + ".svg"
     }
-    componentDidUpdate(){
-        console.log("component updated");
-        
-    }
-    componentWillUnmount(){
-        console.log("removing all weathers....",this.props.weather.weather);
-        
+ 
+    componentWillUnmount(){        
         allweathers = [];
     }
     componentDidMount(){
-
-        this.props.cities.forEach(element => {
-            console.log(element);
-            
+        console.log("We are here.....!!");
+        
+        this.props.cities.forEach(element => {            
             this.props.queryWoeid(element);
         });
-        
     }
     
     render() {
+        //CHECKING THE WAITING VALUE IS FALSE
         if(!this.props.weather.waiting ){
             allweathers.push(this.props.weather.weather);
+            //RESET THE WEATHER TO EMPTY OBJECT
             this.props.weather.weather ={};        
     }
         return (
             <Row>
             { (!this.props.weather.waiting)?
                 allweathers.filter(el=>Object.keys(el).length>0).map(element=>
-                    <Col md="2">
+                    <Col>
                         <Card>
                     <CardImg top width="80%" src={this.getWeatherIcon(element)} alt="Card image cap" />
                     <CardBody>
