@@ -17,10 +17,6 @@ class Home extends Component {
         this.handleChange = this.handleChange.bind(this);
         
     }
-    componentDidMount(){
-        console.log(this.props);
-        
-    }
 
     search(e){
         console.log("Search thins..."+ this.state.term);

@@ -17,9 +17,9 @@ export default class Main extends Component{
                 <Header />
                 <Switch>
                     <Route exact path="/" component={Home}/>
-                    <Route
+                    <Route exact
                         path='/search/:city'
-                        render={(props) => <Weather {...props} cities={[...props.match.params]} />}
+                        render={(props) => <Weather {...props} isSearching={true} />}
                         />
                     <Route path="/weather/:woeid" component={WeatherDetail}/>
 

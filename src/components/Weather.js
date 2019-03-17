@@ -25,11 +25,19 @@ class Weather extends Component {
         allweathers = [];
     }
     componentDidMount(){
-        console.log("We are here.....!!");
-        
-        this.props.cities.forEach(element => {            
+        if(this.props.hasOwnProperty('isSearching') && this.props.isSearching)
+        {
+            let cities =[];
+            cities.push(this.props.match.params.city);
+            cities.forEach(element => {            
+                    this.props.queryWoeid(element);
+                });
+        }else{
+            this.props.cities.forEach(element => {            
             this.props.queryWoeid(element);
         });
+        }
+        
     }
     
     render() {
@@ -54,7 +62,7 @@ class Weather extends Component {
                             <small>Min Temp: {this.getTodayWeather(element).min_temp.toFixed(2)} &#176; C</small>
                         </CardText>
                         
-                            <NavLink className="nav-link" to={`weather/${element.woeid}`}>Details</NavLink>
+                            <NavLink className="nav-link" to={`/weather/${element.woeid}`}>Details</NavLink>
                     </CardBody>
                     </Card>
                     </Col>

@@ -19,6 +19,7 @@ class Header extends Component {
                     
                     </Nav>
                 </Navbar>
+                
             </div>
         );
     }
