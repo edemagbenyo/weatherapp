@@ -45,8 +45,7 @@ export const queryWeather = (woeid,term=null) => dispatch => {
         var errorMess = new Error(error.message);
         throw errorMess;
       })
-    .then(response => console.log(response)
-    )
+    .then(response => response)
     .then(weather =>
       dispatch({
         type: ActionTypes.QUERY_LOCATION,
