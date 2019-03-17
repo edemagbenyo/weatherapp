@@ -6,7 +6,6 @@ import {Row, Col, Card, CardBody, CardTitle , CardImg, CardText} from 'reactstra
 
 
 
-
 class WeatherDetail extends Component {
 
     componentDidMount(){
@@ -29,7 +28,7 @@ class WeatherDetail extends Component {
             todayWeather = this.props.weather.weather.consolidated_weather[0];
         }
         
-       
+        
         return (
             <div>
                 {

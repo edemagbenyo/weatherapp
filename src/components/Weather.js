@@ -3,7 +3,7 @@ import { withRouter, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { queryWoeid } from "../redux/actions/weatherAction";
 import {Card, CardBody, CardTitle , CardImg, CardText, Col, Row} from 'reactstrap';
-
+import Search from "./SearchComponent";
 
 let allweathers =[];
 class Weather extends Component {
@@ -49,6 +49,7 @@ class Weather extends Component {
     }
         return (
             <Row>
+                {(this.props.isSearching) ? <Col md="12"> <Search /></Col>  : null}
             { (!this.props.weather.waiting)?
                 allweathers.filter(el=>Object.keys(el).length>0).map(element=>
                     <Col>
